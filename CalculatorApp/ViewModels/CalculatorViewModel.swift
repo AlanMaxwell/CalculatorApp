@@ -10,6 +10,7 @@ import SwiftUI
 //TODO: btc should be on a separate page, the calculator on its page
 
 class CalculatorViewModel: ObservableObject {
+    
     @Published var firstNumber = "0"
     @Published var secondNumber = "0"
     @Published var operation:ArithmeticOperation = .none
@@ -21,6 +22,8 @@ class CalculatorViewModel: ObservableObject {
     
     @Published var operationClear = false
     @Published var pressedClear = false
+    
+    var calculator = Calculator()
     
     var showAllClear: Bool {
         let val = firstNumber == "0" && secondNumber == "0" && number == "0" || pressedClear
@@ -38,8 +41,6 @@ class CalculatorViewModel: ObservableObject {
         ]
     }
     
-//    private var calculatorCancellable: AnyCancellable?
-    
     func tapAction(button: ButtonType){
         switch button {
         case .digit(let digit):
@@ -51,15 +52,18 @@ class CalculatorViewModel: ObservableObject {
         case .negative:
             toggleSign()
         case .sin:
-            number = "\(sin(Double(number) ?? 0))"
+            number = "\(calculator.calculateSin(degrees: Double(number) ?? 0))"
         case .cos:
-            number = "\(cos(Double(number) ?? 0))"
+            number = "\(calculator.calculateCos(degrees: Double(number) ?? 0))"
         case .decimal:
             toggleDecimal()
         case .equals:
             self.secondNumber = self.number
-            evaluate()
+            let firstNum = Double(firstNumber) ?? 0
+            let secondNum = Double(secondNumber) ?? 0
+            number = "\(String(format: "%g", calculator.evaluate(firstNumber: firstNum, secondNumber: secondNum, operation: operation)))"
             self.operationClear = true
+            self.operation = .none
         case .allClear:
             print("allClear")
             allClear()
@@ -121,63 +125,10 @@ class CalculatorViewModel: ObservableObject {
         pressedClear = true
     }
     
-    func evaluate() {
-        let firstNum = Double(firstNumber) ?? 0
-        let secondNum = Double(secondNumber) ?? 0
-        var result:String {
-            var result:Double
-            switch operation {
-            case .addition:
-                result = firstNum + secondNum
-            case .subtraction:
-                result = firstNum - secondNum
-            case .multiplication:
-                result = firstNum * secondNum
-            case .division:
-                result = firstNum / secondNum
-            case .none:
-                print("not ready")
-                result = 0.0
-            }
-            
-//            if decimalToggled {
-//                let formatter = NumberFormatter()
-//                let number = NSNumber(value: result)
-//                formatter.minimumFractionDigits = 0
-//                formatter.maximumFractionDigits = 16 //maximum digits in Double after dot (maximum precision)
-//                return String(formatter.string(from: number) ?? "")
-//            }
-            
-            return "\(String(format: "%g", result))"
-        }
-        
-        number = result
-        operation = .none
-    }
+
     
     init() {
-//        calculatorCancellable = Publishers.CombineLatest3($number, $secondNumber, $operation)
-//            .map { (first, second, operation) -> String in
-//                let firstNum = Double(first) ?? 0
-//                let secondNum = Double(second) ?? 0
-//                switch operation {
-//                case .addition:
-//                    return "\(firstNum + secondNum)"
-//                case .subtraction:
-//                    return "\(firstNum - secondNum)"
-//                case .multiplication:
-//                    return "\(firstNum * secondNum)"
-//                case .division:
-//                    return "\(firstNum / secondNum)"
-////                case "sin":
-////                    return "\(sin(firstNum))"
-////                case "cos":
-////                    return "\(cos(firstNum))"
-//                default:
-//                    return "Invalid Operation"
-//                }
-//            }
-//            .assign(to: \.result, on: self)
+
     }
     
     //    /// Checks if current buttonType of type .arithmeticOperation is active

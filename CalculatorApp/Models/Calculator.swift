@@ -2,97 +2,38 @@
 //  Calculator.swift
 //  CalculatorApp
 //
-//  Created by Alexey Budynkov on 23.01.2023.
+//  Created by Alexey Budynkov on 25.01.2023.
 //
 
 import Foundation
-import SwiftUI
 
-enum Digit: Int, CaseIterable, CustomStringConvertible {
-    case zero, one, two, three, four, five, six, seven, eight, nine
+class Calculator {
     
-    var description: String {
-        "\(rawValue)"
+    func calculateSin(degrees:Double) -> Double {
+        __sinpi(degrees/180.0)
     }
-}
-
-enum ArithmeticOperation: CaseIterable, CustomStringConvertible {
-    case addition, subtraction, multiplication, division, none
     
-    var description: String {
-        switch self {
+    func calculateCos(degrees:Double) -> Double {
+        __cospi(degrees/180.0)
+    }
+    
+    func evaluate(firstNumber:Double, secondNumber:Double, operation:ArithmeticOperation)->Double {
+        var result:Double
+        switch operation {
         case .addition:
-            return "+"
+            result = firstNumber + secondNumber
         case .subtraction:
-            return "−"
+            result = firstNumber - secondNumber
         case .multiplication:
-            return "×"
+            result = firstNumber * secondNumber
         case .division:
-            return "÷"
+            result = firstNumber / secondNumber
         case .none:
-            return ""
+            result = 0.0
         }
+        
+        return result
     }
+
 }
-
-
-enum ButtonType: Hashable, CustomStringConvertible {
-    case digit(_ digit: Digit)
-    case operation(_ operation: ArithmeticOperation)
-    case negative
-    case sin
-    case cos
-    case decimal
-    case equals
-    case allClear
-    case clear
-    
-    var description: String {
-        switch self {
-        case .digit(let digit):
-            return digit.description
-        case .operation(let operation):
-            return operation.description
-        case .negative:
-            return "±"
-        case .sin:
-            return "sin"
-        case .cos:
-            return "cos"
-        case .decimal:
-            return "."
-        case .equals:
-            return "="
-        case .allClear:
-            return "AC"
-        case .clear:
-            return "C"
-        }
-    }
-    
-    var backgroundColor: Color {
-        switch self {
-        case .allClear, .clear, .negative://, .percent:
-            return Color(.lightGray)
-        case .operation, .equals:
-            return .orange
-        case .digit, .decimal:
-            return .secondary
-        case .sin:
-            return Color(.lightGray)
-        case .cos:
-            return Color(.lightGray)
-        }
-    }
-    
-    var foregroundColor: Color {
-        switch self {
-        case .allClear, .clear, .negative://, .percent:
-            return .black
-        default:
-            return .white
-        }
-    }
-}
-
 
