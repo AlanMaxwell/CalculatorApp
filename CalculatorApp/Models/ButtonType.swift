@@ -11,7 +11,7 @@ import SwiftUI
 
 enum ButtonType: Hashable, CustomStringConvertible {
     case digit(_ digit: Digit)
-    case operation(_ operation: ArithmeticOperation)
+    case operation(_ operation: ArithmeticOperation, enabled: Bool)
     case negative
     case sin
     case cos
@@ -20,11 +20,12 @@ enum ButtonType: Hashable, CustomStringConvertible {
     case allClear
     case clear
     
+    
     var description: String {
         switch self {
         case .digit(let digit):
             return digit.description
-        case .operation(let operation):
+        case .operation(let operation, _):
             return operation.description
         case .negative:
             return "±"
@@ -47,7 +48,12 @@ enum ButtonType: Hashable, CustomStringConvertible {
         switch self {
         case .allClear, .clear, .negative:
             return Color(.lightGray)
-        case .operation, .equals:
+        case .operation(_, let enabled):
+            if enabled {
+                return .orange
+            }
+            return Color(.darkGray)
+        case .equals:
             return .orange
         case .digit, .decimal:
             return .secondary
@@ -60,12 +66,13 @@ enum ButtonType: Hashable, CustomStringConvertible {
     
     var foregroundColor: Color {
         switch self {
-        case .allClear, .clear, .negative:
+        case .allClear, .clear, .negative, .sin, .cos:
             return .black
         default:
             return .white
         }
     }
+    
 }
 
 

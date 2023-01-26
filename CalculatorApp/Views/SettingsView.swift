@@ -7,14 +7,21 @@
 
 import SwiftUI
 
+
 struct SettingsView: View {
-    
+
     @EnvironmentObject private var viewModel: CalculatorViewModel
-    
+
     var body: some View {
-        
-        
-        Text(viewModel.number)
+        Form {
+            Section {
+                Toggle("Addition available", isOn: $viewModel.additionIsOn)
+                Toggle("Subtraction available", isOn: $viewModel.subtractionIsOn)
+                Toggle("Multiplication available", isOn: $viewModel.multiplicationIsOn)
+                Toggle("Division available", isOn: $viewModel.divisionIsOn)
+            }
+
+        }
     }
 }
 

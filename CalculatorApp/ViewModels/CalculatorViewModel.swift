@@ -24,6 +24,12 @@ class CalculatorViewModel: ObservableObject {
     @Published var operationClear = false
     @Published var pressedClear = false
     
+    @Published var additionIsOn = true
+    @Published var subtractionIsOn = true
+    @Published var multiplicationIsOn = true
+    @Published var divisionIsOn = true
+    
+    
     var calculator = Calculator()
     
     var showAllClear: Bool {
@@ -33,11 +39,17 @@ class CalculatorViewModel: ObservableObject {
     
     var buttons: [ButtonType] {
         let clearType: ButtonType = showAllClear ? .allClear : .clear
+        
+        let addition = ButtonType.operation(.addition, enabled: additionIsOn)
+        let subtraction = ButtonType.operation(.subtraction, enabled: subtractionIsOn)
+        let multiplication = ButtonType.operation(.multiplication, enabled: multiplicationIsOn)
+        let division = ButtonType.operation(.division, enabled: divisionIsOn)
+        
         return [
-        clearType, .negative, .sin, .cos, .operation(.division),
-        .digit(.seven), .digit(.eight), .digit(.nine), .operation(.multiplication),
-        .digit(.four), .digit(.five), .digit(.six), .operation(.subtraction),
-        .digit(.one), .digit(.two), .digit(.three), .operation(.addition),
+        clearType, .negative, .sin, .cos, division,
+        .digit(.seven), .digit(.eight), .digit(.nine), multiplication,
+        .digit(.four), .digit(.five), .digit(.six), subtraction,
+        .digit(.one), .digit(.two), .digit(.three), addition,
         .digit(.zero), .decimal, .equals
         ]
     }
@@ -46,10 +58,13 @@ class CalculatorViewModel: ObservableObject {
         switch button {
         case .digit(let digit):
             addDigit(digit: digit)
-        case .operation(let operation):
-            self.operation = operation
-            self.firstNumber = number
-            self.operationClear = true
+        case .operation(let operation, let enabled):
+            if enabled {
+                self.operation = operation
+                self.firstNumber = number
+                self.operationClear = true
+            }
+
         case .negative:
             toggleSign()
         case .sin:

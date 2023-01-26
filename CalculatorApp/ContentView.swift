@@ -22,7 +22,8 @@ struct ContentView: View {
                     
                 }
                 .tag(1)
-            SettingsView()
+            
+            CryptoRates()
                 .tabItem {
                     
                     Image(systemName: "dollarsign")
