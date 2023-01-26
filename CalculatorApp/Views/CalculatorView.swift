@@ -10,12 +10,11 @@ import Combine
 
 struct CalculatorView: View {
 
-    @ObservedObject var viewModel = CalculatorViewModel()
+    @EnvironmentObject private var viewModel: CalculatorViewModel
 
     var body: some View {
         GeometryReader { proxy in
             ZStack {
-                Color.black.edgesIgnoringSafeArea(.all)
 
                 VStack {
                     Spacer()
@@ -24,22 +23,19 @@ struct CalculatorView: View {
                     HStack {
                         Spacer()
                         Text(viewModel.number)
-                            .padding()
-                            .foregroundColor(.white)
+                            .font(.system(size: 32))
                             .frame(maxWidth: .infinity, alignment: .trailing)
-                            .font(.system(size: 88, weight: .light))
+                            
                             .lineLimit(1)
                             .minimumScaleFactor(0.2)
                     }
                     .padding()
-                    .frame(
-                        height: proxy.size.height/7
-                    )
 
                     HStack(spacing: 12){
 
-                        LazyVGrid(columns: Array(repeating: GridItem(), count: 4)) {
+                        LazyVGrid(columns: Array(repeating: GridItem(), count: 4), spacing: 0) {
                             ForEach(viewModel.buttons, id: \.self) { row in
+                                
                                 Button(action: {
                                     viewModel.tapAction(button: row)
                                 }, label: {
@@ -59,6 +55,7 @@ struct CalculatorView: View {
                     }
                 }
             }
+
         }
     }
 
@@ -67,6 +64,6 @@ struct CalculatorView: View {
 struct CalculatorView_Previews: PreviewProvider {
     static var previews: some View {
         CalculatorView()
-            .previewInterfaceOrientation(.landscapeLeft)
+            .environmentObject(CalculatorViewModel())
     }
 }

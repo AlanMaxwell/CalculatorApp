@@ -8,6 +8,7 @@
 import SwiftUI
 
 //TODO: btc should be on a separate page, the calculator on its page
+//TODO: make a separate page with toggling of different operations
 
 class CalculatorViewModel: ObservableObject {
     
