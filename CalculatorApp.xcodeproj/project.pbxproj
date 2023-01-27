@@ -12,10 +12,10 @@
 		1B147E0529819CBE005B967C /* Digit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B147E0429819CBE005B967C /* Digit.swift */; };
 		1B147E0B2981F642005B967C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B147E0A2981F642005B967C /* SettingsView.swift */; };
 		1B147E0D29821E9C005B967C /* CryptoRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B147E0C29821E9C005B967C /* CryptoRates.swift */; };
-		1B147E112983130E005B967C /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B147E102983130E005B967C /* NetworkLayer.swift */; };
 		1B147E1729831DD9005B967C /* CryptoRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B147E1629831DD9005B967C /* CryptoRate.swift */; };
 		1B147E1929832AA6005B967C /* CryptoRatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B147E1829832AA6005B967C /* CryptoRatesViewModel.swift */; };
-		1B147E1D29835A0A005B967C /* Calculator in Frameworks */ = {isa = PBXBuildFile; productRef = 1B147E1C29835A0A005B967C /* Calculator */; };
+		1B147E2829835E3C005B967C /* Calculator in Frameworks */ = {isa = PBXBuildFile; productRef = 1B147E2729835E3C005B967C /* Calculator */; };
+		1B147E2A29835E3C005B967C /* NetworkLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 1B147E2929835E3C005B967C /* NetworkLayer */; };
 		1B924786297F13CF00068C3B /* CalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B924785297F13CF00068C3B /* CalculatorApp.swift */; };
 		1B924788297F13CF00068C3B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B924787297F13CF00068C3B /* ContentView.swift */; };
 		1B92478A297F13D000068C3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B924789297F13D000068C3B /* Assets.xcassets */; };
@@ -49,10 +49,10 @@
 		1B147E0429819CBE005B967C /* Digit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Digit.swift; sourceTree = "<group>"; };
 		1B147E0A2981F642005B967C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		1B147E0C29821E9C005B967C /* CryptoRates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoRates.swift; sourceTree = "<group>"; };
-		1B147E102983130E005B967C /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
 		1B147E1629831DD9005B967C /* CryptoRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoRate.swift; sourceTree = "<group>"; };
 		1B147E1829832AA6005B967C /* CryptoRatesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoRatesViewModel.swift; sourceTree = "<group>"; };
-		1B147E1A2983591F005B967C /* Calculator */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Calculator; path = ../../Calculator; sourceTree = "<group>"; };
+		1B147E2529835E11005B967C /* NetworkLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = NetworkLayer; path = ../NetworkLayer; sourceTree = "<group>"; };
+		1B147E2629835E2A005B967C /* Calculator */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Calculator; path = ../Calculator; sourceTree = "<group>"; };
 		1B924782297F13CF00068C3B /* CalculatorApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalculatorApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B924785297F13CF00068C3B /* CalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorApp.swift; sourceTree = "<group>"; };
 		1B924787297F13CF00068C3B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,7 +71,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B147E1D29835A0A005B967C /* Calculator in Frameworks */,
+				1B147E2829835E3C005B967C /* Calculator in Frameworks */,
+				1B147E2A29835E3C005B967C /* NetworkLayer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,7 +98,6 @@
 			children = (
 				1B147DFF297F6251005B967C /* ButtonType.swift */,
 				1B147E0429819CBE005B967C /* Digit.swift */,
-				1B147E102983130E005B967C /* NetworkLayer.swift */,
 				1B147E1629831DD9005B967C /* CryptoRate.swift */,
 			);
 			path = Models;
@@ -119,9 +119,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		1B147E2429835E11005B967C /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				1B147E2529835E11005B967C /* NetworkLayer */,
+				1B147E2629835E2A005B967C /* Calculator */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
 		1B924779297F13CF00068C3B = {
 			isa = PBXGroup;
 			children = (
+				1B147E2429835E11005B967C /* Packages */,
 				1B924784297F13CF00068C3B /* CalculatorApp */,
 				1B924795297F13D000068C3B /* CalculatorAppTests */,
 				1B92479F297F13D000068C3B /* CalculatorAppUITests */,
@@ -143,7 +153,6 @@
 		1B924784297F13CF00068C3B /* CalculatorApp */ = {
 			isa = PBXGroup;
 			children = (
-				1B147E1A2983591F005B967C /* Calculator */,
 				1B147DFE297F623C005B967C /* Models */,
 				1B147E01297F62D7005B967C /* ViewModels */,
 				1B9247AF297F145D00068C3B /* Views */,
@@ -207,7 +216,8 @@
 			);
 			name = CalculatorApp;
 			packageProductDependencies = (
-				1B147E1C29835A0A005B967C /* Calculator */,
+				1B147E2729835E3C005B967C /* Calculator */,
+				1B147E2929835E3C005B967C /* NetworkLayer */,
 			);
 			productName = CalculatorApp;
 			productReference = 1B924782297F13CF00068C3B /* CalculatorApp.app */;
@@ -330,7 +340,6 @@
 				1B9247B1297F147100068C3B /* CalculatorView.swift in Sources */,
 				1B147E0B2981F642005B967C /* SettingsView.swift in Sources */,
 				1B924786297F13CF00068C3B /* CalculatorApp.swift in Sources */,
-				1B147E112983130E005B967C /* NetworkLayer.swift in Sources */,
 				1B147E03297F62EC005B967C /* CalculatorViewModel.swift in Sources */,
 				1B147E0529819CBE005B967C /* Digit.swift in Sources */,
 				1B147E0D29821E9C005B967C /* CryptoRates.swift in Sources */,
@@ -654,9 +663,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		1B147E1C29835A0A005B967C /* Calculator */ = {
+		1B147E2729835E3C005B967C /* Calculator */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Calculator;
+		};
+		1B147E2929835E3C005B967C /* NetworkLayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NetworkLayer;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
