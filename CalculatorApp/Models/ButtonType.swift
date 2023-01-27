@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Calculator
 
 
 enum ButtonType: Hashable, CustomStringConvertible {

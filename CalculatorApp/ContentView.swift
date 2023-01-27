@@ -9,14 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @Environment(\.colorScheme) var colorScheme
-    
     @State var selected:Bool = true
     var body: some View {
         TabView {
             CalculatorView()
                 .tabItem {
-                    Image(colorScheme == .dark ? "calculator_white" : "calculator_black")
+                    Image("calculator_white")
                         .renderingMode(.template)
                     Text("Calculator")
                     

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Calculator
 
 //TODO: btc should be on a separate page, the calculator on its page
 //TODO: make a separate page with toggling of different operations
@@ -40,10 +41,10 @@ class CalculatorViewModel: ObservableObject {
     var buttons: [ButtonType] {
         let clearType: ButtonType = showAllClear ? .allClear : .clear
         
-        let addition = ButtonType.operation(.addition, enabled: additionIsOn)
-        let subtraction = ButtonType.operation(.subtraction, enabled: subtractionIsOn)
-        let multiplication = ButtonType.operation(.multiplication, enabled: multiplicationIsOn)
-        let division = ButtonType.operation(.division, enabled: divisionIsOn)
+        let addition = ButtonType.operation(ArithmeticOperation.addition, enabled: additionIsOn)
+        let subtraction = ButtonType.operation(ArithmeticOperation.subtraction, enabled: subtractionIsOn)
+        let multiplication = ButtonType.operation(ArithmeticOperation.multiplication, enabled: multiplicationIsOn)
+        let division = ButtonType.operation(ArithmeticOperation.division, enabled: divisionIsOn)
         
         return [
         clearType, .negative, .sin, .cos, division,
