@@ -11,7 +11,7 @@ import Combine
 
 struct CryptoRates: View {
     
-    @ObservedObject var viewModel = CryptoRatesViewModel()
+    @EnvironmentObject private var viewModel: CryptoRatesViewModel
     
     var body: some View {
         Text("\(viewModel.btcRate)")

@@ -46,22 +46,23 @@ enum ButtonType: Hashable, CustomStringConvertible {
     }
     
     var backgroundColor: Color {
+        let theme = ThemeManager.themeSubject.value
         switch self {
         case .allClear, .clear, .negative:
-            return Color(.lightGray)
+            return theme.functionalButtonColor
         case .operation(_, let enabled):
             if enabled {
-                return .orange
+                return theme.operationButtonColor
             }
             return Color(.darkGray)
         case .equals:
-            return .orange
+            return theme.operationButtonColor
         case .digit, .decimal:
-            return .secondary
+            return theme.digitButtonColor
         case .sin:
-            return Color(.lightGray)
+            return theme.functionalButtonColor
         case .cos:
-            return Color(.lightGray)
+            return theme.functionalButtonColor
         }
     }
     

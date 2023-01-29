@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Calculator
+import Combine
 
 //TODO: btc should be on a separate page, the calculator on its page
 //TODO: make a separate page with toggling of different operations
@@ -31,6 +32,17 @@ class CalculatorViewModel: ObservableObject {
     @Published var divisionIsOn = true
     
     
+    @Published var themeSwitcher = false {
+        didSet{
+            if themeSwitcher == false {
+                ThemeManager.applyTheme(theme: .defaultTheme)
+            }
+            else{
+                ThemeManager.applyTheme(theme: .colored)
+            }
+            
+        }
+    }
     var calculator = Calculator()
     
     var showAllClear: Bool {
@@ -120,7 +132,6 @@ class CalculatorViewModel: ObservableObject {
     }
     
     
-    
     func allClear() {
         number = "0"
         firstNumber = "0"
@@ -142,15 +153,9 @@ class CalculatorViewModel: ObservableObject {
         pressedClear = true
     }
     
-
     
     init() {
-
+        
     }
     
-    //    /// Checks if current buttonType of type .arithmeticOperation is active
-    ////    func buttonTypeIsHighlighted(buttonType: CalculatorButton) -> Bool {
-    ////        guard case .operation(let operation) = buttonType else { return false}
-    ////        return calculator.operationIsHighlighted(operation)
-    ////    }
 }

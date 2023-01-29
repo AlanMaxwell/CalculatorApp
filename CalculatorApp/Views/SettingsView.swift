@@ -10,17 +10,25 @@ import SwiftUI
 
 struct SettingsView: View {
 
-    @EnvironmentObject private var viewModel: CalculatorViewModel
+    @EnvironmentObject private var calculatorViewModel: CalculatorViewModel
+    @EnvironmentObject private var cryptoRatesviewModel: CryptoRatesViewModel
 
+    
     var body: some View {
         Form {
             Section {
-                Toggle("Addition available", isOn: $viewModel.additionIsOn)
-                Toggle("Subtraction available", isOn: $viewModel.subtractionIsOn)
-                Toggle("Multiplication available", isOn: $viewModel.multiplicationIsOn)
-                Toggle("Division available", isOn: $viewModel.divisionIsOn)
+                Toggle("Addition available", isOn: $calculatorViewModel.additionIsOn)
+                Toggle("Subtraction available", isOn: $calculatorViewModel.subtractionIsOn)
+                Toggle("Multiplication available", isOn: $calculatorViewModel.multiplicationIsOn)
+                Toggle("Division available", isOn: $calculatorViewModel.divisionIsOn)
             }
-
+            Section("Network calls are turned off") {
+                Toggle("Offline mode", isOn: $cryptoRatesviewModel.offlineMode)
+            }
+            Section {
+                Toggle("Colored theme", isOn: $calculatorViewModel.themeSwitcher)
+            }
+            
         }
     }
 }

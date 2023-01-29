@@ -19,11 +19,15 @@ class CryptoRatesViewModel:ObservableObject {
     
     private var cancellables = Set<AnyCancellable>()
 
-
+    @Published var offlineMode = false
     @Published var rates:CurrenciesRates = [:]
     @Published var errorMessage: String = ""
     
     var btcRate: String {
+        if offlineMode {
+            return "Offline mode is on"
+        }
+        
         if rates.count == 0{
             return "No date"
         }
@@ -46,21 +50,24 @@ class CryptoRatesViewModel:ObservableObject {
     }
     
     func loadRates() {
-        fetchDictionary(resource: resource)
-            .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { [weak self] completion in
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
-                    self?.handleError(error)
-                }
-            }, receiveValue: { [weak self] dict in
-                
-                self?.rates = dict
-                self?.errorMessage = ""
-            })
-            .store(in: &cancellables)
+        if !offlineMode {
+            
+            fetchDictionary(resource: resource)
+                .receive(on: DispatchQueue.main)
+                .sink(receiveCompletion: { [weak self] completion in
+                    switch completion {
+                    case .finished:
+                        break
+                    case .failure(let error):
+                        self?.handleError(error)
+                    }
+                }, receiveValue: { [weak self] dict in
+                    
+                    self?.rates = dict
+                    self?.errorMessage = ""
+                })
+                .store(in: &cancellables)
+        }
     }
     
     
