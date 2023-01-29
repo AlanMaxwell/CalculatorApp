@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "calculator",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AlanMaxwell/Calculator",
+      "state" : {
+        "revision" : "6c8fa1c3e6cfa0a1194610c892fcdce4d99a79f0",
+        "version" : "1.0.0"
+      }
+    },
+    {
+      "identity" : "networklayer",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AlanMaxwell/NetworkLayer",
+      "state" : {
+        "revision" : "fafdf8d3198bc5232cd35c5abf2685b3542cdd3c",
+        "version" : "1.0.0"
+      }
+    }
+  ],
+  "version" : 2
+}
