@@ -14,9 +14,9 @@
 		1B147E0D29821E9C005B967C /* CryptoRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B147E0C29821E9C005B967C /* CryptoRates.swift */; };
 		1B147E1729831DD9005B967C /* CryptoRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B147E1629831DD9005B967C /* CryptoRate.swift */; };
 		1B147E1929832AA6005B967C /* CryptoRatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B147E1829832AA6005B967C /* CryptoRatesViewModel.swift */; };
-		1B147E2829835E3C005B967C /* Calculator in Frameworks */ = {isa = PBXBuildFile; productRef = 1B147E2729835E3C005B967C /* Calculator */; };
-		1B147E2A29835E3C005B967C /* NetworkLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 1B147E2929835E3C005B967C /* NetworkLayer */; };
 		1B147E2C29836EC6005B967C /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B147E2B29836EC6005B967C /* Themes.swift */; };
+		1B147E2F2986069A005B967C /* Calculator in Frameworks */ = {isa = PBXBuildFile; productRef = 1B147E2E2986069A005B967C /* Calculator */; };
+		1B147E382986087A005B967C /* NetworkLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 1B147E372986087A005B967C /* NetworkLayer */; };
 		1B924786297F13CF00068C3B /* CalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B924785297F13CF00068C3B /* CalculatorApp.swift */; };
 		1B924788297F13CF00068C3B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B924787297F13CF00068C3B /* ContentView.swift */; };
 		1B92478A297F13D000068C3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B924789297F13D000068C3B /* Assets.xcassets */; };
@@ -52,8 +52,6 @@
 		1B147E0C29821E9C005B967C /* CryptoRates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoRates.swift; sourceTree = "<group>"; };
 		1B147E1629831DD9005B967C /* CryptoRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoRate.swift; sourceTree = "<group>"; };
 		1B147E1829832AA6005B967C /* CryptoRatesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoRatesViewModel.swift; sourceTree = "<group>"; };
-		1B147E2529835E11005B967C /* NetworkLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = NetworkLayer; path = ../NetworkLayer; sourceTree = "<group>"; };
-		1B147E2629835E2A005B967C /* Calculator */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Calculator; path = ../Calculator; sourceTree = "<group>"; };
 		1B147E2B29836EC6005B967C /* Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
 		1B924782297F13CF00068C3B /* CalculatorApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalculatorApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B924785297F13CF00068C3B /* CalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorApp.swift; sourceTree = "<group>"; };
@@ -73,8 +71,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B147E2829835E3C005B967C /* Calculator in Frameworks */,
-				1B147E2A29835E3C005B967C /* NetworkLayer in Frameworks */,
+				1B147E2F2986069A005B967C /* Calculator in Frameworks */,
+				1B147E382986087A005B967C /* NetworkLayer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,19 +119,9 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		1B147E2429835E11005B967C /* Packages */ = {
-			isa = PBXGroup;
-			children = (
-				1B147E2529835E11005B967C /* NetworkLayer */,
-				1B147E2629835E2A005B967C /* Calculator */,
-			);
-			name = Packages;
-			sourceTree = "<group>";
-		};
 		1B924779297F13CF00068C3B = {
 			isa = PBXGroup;
 			children = (
-				1B147E2429835E11005B967C /* Packages */,
 				1B924784297F13CF00068C3B /* CalculatorApp */,
 				1B924795297F13D000068C3B /* CalculatorAppTests */,
 				1B92479F297F13D000068C3B /* CalculatorAppUITests */,
@@ -219,8 +207,8 @@
 			);
 			name = CalculatorApp;
 			packageProductDependencies = (
-				1B147E2729835E3C005B967C /* Calculator */,
-				1B147E2929835E3C005B967C /* NetworkLayer */,
+				1B147E2E2986069A005B967C /* Calculator */,
+				1B147E372986087A005B967C /* NetworkLayer */,
 			);
 			productName = CalculatorApp;
 			productReference = 1B924782297F13CF00068C3B /* CalculatorApp.app */;
@@ -294,6 +282,10 @@
 				Base,
 			);
 			mainGroup = 1B924779297F13CF00068C3B;
+			packageReferences = (
+				1B147E2D2986069A005B967C /* XCRemoteSwiftPackageReference "Calculator" */,
+				1B147E362986087A005B967C /* XCRemoteSwiftPackageReference "NetworkLayer" */,
+			);
 			productRefGroup = 1B924783297F13CF00068C3B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -666,13 +658,34 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		1B147E2D2986069A005B967C /* XCRemoteSwiftPackageReference "Calculator" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AlanMaxwell/Calculator";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		1B147E362986087A005B967C /* XCRemoteSwiftPackageReference "NetworkLayer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AlanMaxwell/NetworkLayer";
+			requirement = {
+				kind = exactVersion;
+				version = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
-		1B147E2729835E3C005B967C /* Calculator */ = {
+		1B147E2E2986069A005B967C /* Calculator */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = 1B147E2D2986069A005B967C /* XCRemoteSwiftPackageReference "Calculator" */;
 			productName = Calculator;
 		};
-		1B147E2929835E3C005B967C /* NetworkLayer */ = {
+		1B147E372986087A005B967C /* NetworkLayer */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = 1B147E362986087A005B967C /* XCRemoteSwiftPackageReference "NetworkLayer" */;
 			productName = NetworkLayer;
 		};
 /* End XCSwiftPackageProductDependency section */
