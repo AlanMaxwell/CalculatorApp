@@ -9,6 +9,8 @@ import XCTest
 
 final class CalculatorAppUITests: XCTestCase {
 
+    let app = XCUIApplication()
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
 
@@ -21,13 +23,40 @@ final class CalculatorAppUITests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
+    
+    func pushTheButton(label:String){
+        if app.buttons[label].waitForExistence(timeout: 5) {
+            app.buttons[label].tap()
+        }
+        else{
+            XCTFail("No such button \(label)")
+        }
+    }
 
     func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
+        //        ● Type2
+        //        ● Type+
+        //        ● Type3
+        //        ● Result = 5
+        //        ● Type*
+        //        ● Type4
+        //        ● Result = 20
+        
         app.launch()
 
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        pushTheButton(label: "2")
+        pushTheButton(label: "+")
+        pushTheButton(label: "3")
+        pushTheButton(label: "=")
+        pushTheButton(label: "×")
+        pushTheButton(label: "4")
+        pushTheButton(label: "=")
+        
+        sleep(1)
+        let resultText = app.staticTexts["20"]
+        
+            
+        XCTAssertEqual(resultText.label, "20")
     }
 
     func testLaunchPerformance() throws {

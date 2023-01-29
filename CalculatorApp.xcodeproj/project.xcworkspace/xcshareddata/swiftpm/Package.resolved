@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/AlanMaxwell/Calculator",
       "state" : {
-        "revision" : "6c8fa1c3e6cfa0a1194610c892fcdce4d99a79f0",
-        "version" : "1.0.0"
+        "revision" : "b5274a436d7a2079b17e01ea7ac5d23df55a5d1a",
+        "version" : "1.0.1"
       }
     },
     {
@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/AlanMaxwell/NetworkLayer",
       "state" : {
-        "revision" : "fafdf8d3198bc5232cd35c5abf2685b3542cdd3c",
-        "version" : "1.0.0"
+        "revision" : "5a204a2e995552fc45b60b130ba83b434ee26fc7",
+        "version" : "1.0.1"
       }
     }
   ],

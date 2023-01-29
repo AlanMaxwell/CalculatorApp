@@ -68,5 +68,68 @@
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FDE2BCBE-C25D-4FC2-832F-F99DB99049C9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CalculatorAppUITests/CalculatorAppUITests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "testExample()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FDE2BCBE-C25D-4FC2-832F-F99DB99049C9 - ca79da40ac0eeb3e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CalculatorAppUITests.CalculatorAppUITests.testExample() throws -&gt; ()"
+                  moduleName = "CalculatorAppUITests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alanmaxwell/Documents/CalculatorApp/CalculatorAppUITests/CalculatorAppUITests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "384">
+               </Location>
+               <Location
+                  uuid = "FDE2BCBE-C25D-4FC2-832F-F99DB99049C9 - ca79da40ac0eeb3e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CalculatorAppUITests.CalculatorAppUITests.testExample() throws -&gt; ()"
+                  moduleName = "CalculatorAppUITests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alanmaxwell/Documents/CalculatorApp/CalculatorAppUITests/CalculatorAppUITests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "388">
+               </Location>
+               <Location
+                  uuid = "FDE2BCBE-C25D-4FC2-832F-F99DB99049C9 - ca79da40ac0eeb5f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CalculatorAppUITests.CalculatorAppUITests.testExample() throws -&gt; ()"
+                  moduleName = "CalculatorAppUITests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alanmaxwell/Documents/CalculatorApp/CalculatorAppUITests/CalculatorAppUITests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "432">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
